@@ -20,6 +20,7 @@ namespace RoverApp
                     width = inputValues[0];
                     height = inputValues[1];
                 }
+                Grid grid = new Grid(width, height);
                 Console.WriteLine("Enter Position and Direction Rover Is Facing: ('1 2 N'):");
                 input = Console.ReadLine();
                 if(TryParsePositionAndHeading(input, rover))
