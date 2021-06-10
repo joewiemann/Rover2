@@ -8,7 +8,7 @@ namespace RoverApp
         {
             Rover rover = new Rover();
             int[] inputValues;
-            int width, height;
+            int width = default, height = default;
        
             Console.WriteLine("Enter Size Of Field ('5 5'):");
           
@@ -32,7 +32,7 @@ namespace RoverApp
                     for (i = 0; i < input.Length; i++)
                     {
                         command = input[i];
-                        if (!Rover.PerformCommand(command, rover))
+                        if (!Rover.PerformCommand(command, grid,rover))
                             Console.WriteLine("Command Failed:{0}, {1}, {2}, {3}", command, rover.x, rover.y, rover.heading);
                     }
 

@@ -10,7 +10,7 @@ public class Rover
 	}
 
 
-    public static bool PerformCommand(char command, Rover rover)
+    public static bool PerformCommand(char command, Grid grid, Rover rover)
     {
         switch (command)
         {
@@ -36,13 +36,25 @@ public class Rover
                 break;
             case 'M':
                 if (rover.heading == 'N')
-                    rover.y += 1;
+                    if (rover.y < grid.Height)
+                        rover.y += 1;
+                    else
+                        rover.y = grid.Height;
                 if (rover.heading == 'S')
-                    rover.y -= 1;
+                    if (rover.y > 0)
+                        rover.y -= 1;
+                    else
+                        rover.y = 0;
                 if (rover.heading == 'E')
-                    rover.x += 1;
+                    if (rover.x < grid.Width)
+                        rover.x += 1;
+                    else
+                        rover.x = grid.Width;
                 if (rover.heading == 'W')
-                    rover.x -= 1;
+                    if (rover.x > 0)
+                        rover.x -= 1;
+                    else
+                        rover.x = 0;
                 break;
 
             default:
